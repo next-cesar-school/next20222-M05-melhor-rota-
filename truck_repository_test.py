@@ -10,8 +10,15 @@ repository.insert_truck(truck1)
 repository.insert_truck(truck2)
 repository.insert_truck(truck3)
 
-repository.list_all()
-
 repository.update_truck_localization("pleasework789", 'oslo')
 
-repository.list_all()
+trucksDict = repository.get_all()
+trucks = trucksDict.values()
+for truck in trucks:
+    print(f'Id: {truck.get_id()}')
+    if (truck.get_status()):
+        print('Status: Loaded')
+    else:
+        print('Status: Empty')
+    print(f'Localization: {truck.get_localization()}')
+    print('------------------------------------------')
