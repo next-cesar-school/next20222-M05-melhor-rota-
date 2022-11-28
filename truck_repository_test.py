@@ -10,4 +10,8 @@ repository.insert_truck(truck1)
 repository.insert_truck(truck2)
 repository.insert_truck(truck3)
 
-print(repository.list_all())
+repository.list_all()
+
+repository.update_truck_localization("pleasework789", 'oslo')
+
+repository.list_all()

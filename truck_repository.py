@@ -5,19 +5,27 @@ class Truck_repository:
         self.__repository= {}
 
     def insert_truck(self, truck):
-        self.__repository.update(truck.getId(), truck)
+        self.__repository.update({truck.get_id(): truck})
     
     def list_all (self):
-        self.__repository.items()
+        trucks = self.__repository.values()
+        for truck in trucks:
+            print(f'Id: {truck.get_id()}')
+            if (truck.get_status()):
+                print('Status: Loaded')
+            else:
+                print('Status: Empty')
+            print(f'Localization: {truck.get_localization()}')
+            print('------------------------------------------')
 
     def update_truck_status(self, id, status):
         truck = self.__repository.get(id)
         truck.set_status(status)
-        self.__repository.update(truck.getId(), truck)
+        self.__repository.update({truck.get_id(): truck})
     
     def update_truck_localization(self, id, localization):
         truck = self.__repository.get(id)
         truck.set_localization(localization)
-        self.__repository.update(truck.getId(), truck)
+        self.__repository.update({truck.get_id(): truck})
 
     
