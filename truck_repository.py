@@ -7,16 +7,8 @@ class Truck_repository:
     def insert_truck(self, truck):
         self.__repository.update({truck.get_id(): truck})
     
-    def list_all (self):
-        trucks = self.__repository.values()
-        for truck in trucks:
-            print(f'Id: {truck.get_id()}')
-            if (truck.get_status()):
-                print('Status: Loaded')
-            else:
-                print('Status: Empty')
-            print(f'Localization: {truck.get_localization()}')
-            print('------------------------------------------')
+    def get_all (self):
+       return self.__repository
 
     def update_truck_status(self, id, status):
         truck = self.__repository.get(id)
