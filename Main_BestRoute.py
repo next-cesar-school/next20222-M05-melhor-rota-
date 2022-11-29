@@ -1,5 +1,5 @@
 from graph import Graph
-from best_route_wrapper import *
+from BestRouteWrapper import *
 from Truck import *
 
 nodes = ["D1", "C2", "V3", "V4",
@@ -25,8 +25,11 @@ init_graph["D5"]["V8"] = 25
 init_graph["C6"]["V8"] = 10
 
 g = Graph(nodes, init_graph)
-brw = Best_route_wrapper()
+brw = BestRouteWrapper()
 truck = Truck("123", False, "V4")
 
-brw.best_route(g, truck)
+path, distance = brw.best_route(g, truck)
+path_reverse = ' -> '.join(reversed(path))
 
+print(
+    f'We found the following best path:  {path_reverse}; \nDistance: {distance} km.')
