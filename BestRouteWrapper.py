@@ -18,7 +18,7 @@ class BestRouteWrapper(object):
         return path, shortest_path[target_node]
 
     def best_route(self, g, truck):
-        if truck.get_status():
+        if truck.get_isFull():
             pathD1, distanceD1 = self.route_calculator(
                 g, truck.get_localization(), "D1")
             pathD5, distanceD5 = self.route_calculator(

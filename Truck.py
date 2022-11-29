@@ -1,8 +1,8 @@
 class Truck:
     
-    def __init__(self, id, status, localization):
+    def __init__(self, id, isFull, localization):
         self.__id = id
-        self.__status = status
+        self.__isFull = isFull
         self.__localization = localization
 
     def get_id(self):
@@ -11,11 +11,11 @@ class Truck:
     def set_id(self, id):
         self.__id = id
     
-    def get_status(self):
-        return self.__status
+    def get_isFull(self):
+        return self.__isFull
 
-    def set_status(self, status):
-        self.__status = status
+    def set_isFull(self, isFull):
+        self.__isFull = isFull
     
     def get_localization(self):
         return self.__localization
