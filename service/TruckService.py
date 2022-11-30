@@ -1,10 +1,10 @@
 from model.Truck import Truck
-from repository.truck_repository import Truck_repository
+from repository.TruckRepository import TruckRepository
 from util.GraphBuilder import GraphBuilder
 from wrappers.BestRouteWrapper import BestRouteWrapper
 
 class TruckService:
-    truckRepository = Truck_repository()
+    truckRepository = TruckRepository()
     graphBuilder = GraphBuilder()
     bestRouteWrapper = BestRouteWrapper()
     nodes = ["D1", "C2", "V3", "V4",
