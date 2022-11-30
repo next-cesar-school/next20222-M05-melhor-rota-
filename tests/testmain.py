@@ -1,5 +1,5 @@
 from model.graph import Graph
-from best_route_wrapper import Best_route_wrapper
+from wrappers.BestRouteWrapper import BestRouteWrapper
 
 nodes = ["V1", "V2", "V3", "V4",
          "V5", "V6", "V7", "V8"]
@@ -25,7 +25,7 @@ init_graph["V6"]["V8"] = 10
 
 grafo = Graph(nodes, init_graph)
 
-brw = Best_route_wrapper()
+brw = BestRouteWrapper()
 brw.best_route(grafo, 'V5', 'V3')
 
 

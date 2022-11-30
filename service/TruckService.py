@@ -11,58 +11,14 @@ class TruckService:
          "D5", "C6", "V7", "V8"]
            
     def addTruck(self):
-        print('Please insert plate code')
-        id = input()
-        isFull = None
-        while(isFull == None):
-            print('Please inform load status: full or empty')
-            status = input()        
-            if status.casefold().__eq__('full'):
-                isFull = True
-            elif status.casefold().__eq__('empty'):
-                isFull = False
-            else: 
-                print('Invalid input, try again')
-        
-        index = None
-        localization = None
-        while index == None:
-            print('Please inform the trucks localization')
-            localization = input()
-            #It breaks, fix this!
-            index = self.nodes.index(localization)
-            if index is None:
-                print('Invalid input, try again')
-                continue
+        id, isFull, localization = self.getData()
         
         truck = Truck(id, isFull, localization)
         self.truckRepository.insert_truck(truck)
         print('Truck sucessfully registered!')
 
     def updateTruck(self):
-        print('Please insert plate code')
-        id = input()
-        isFull = None
-        while(isFull == None):
-            print('Please inform load status: full or empty')
-            status = input()        
-            if status.casefold().__eq__('full'):
-                isFull = True
-            elif status.casefold().__eq__('empty'):
-                isFull = False
-            else: 
-                print('Invalid input, try again')
-            
-        index = None
-        localization = None
-        while index == None:
-            print('Please inform the trucks localization')
-            localization = input()
-            #It breaks, fix this!
-            index = self.nodes.index(localization)
-            if index is None:
-                print('Invalid input, try again')
-                continue
+        id, isFull, localization = self.getData()
             
         truck = self.truckRepository.get_truck_by_id(id)
         truck.set_isFull(isFull)
@@ -99,4 +55,29 @@ class TruckService:
 
         print(f'We found the following best path: {path_reverse}; \nDistance: {distance} km.')
 
-            
+    def getData(self):
+        print('Please insert plate code')
+        id = input()
+        isFull = None
+        while(isFull == None):
+            print('Please inform load status: full or empty')
+            status = input()        
+            if status.casefold().__eq__('full'):
+                isFull = True
+            elif status.casefold().__eq__('empty'):
+                isFull = False
+            else: 
+                print('Invalid input, try again')
+        
+        index = None
+        localization = None
+        while index == None:
+            print('Please inform the trucks localization')
+            localization = input()
+            #It breaks, fix this!
+            index = self.nodes.index(localization)
+            if index is None:
+                print('Invalid input, try again')
+                continue
+        
+        return id, isFull, localization
