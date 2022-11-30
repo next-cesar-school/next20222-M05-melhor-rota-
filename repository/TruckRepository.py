@@ -1,6 +1,6 @@
 from model.Truck import Truck
 
-class Truck_repository:
+class TruckRepository:
     def __init__(self):
         self.__repository= {}
 
