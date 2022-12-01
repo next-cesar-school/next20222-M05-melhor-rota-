@@ -13,6 +13,7 @@ class View:
             print('6 - Exit application')
     
             answer = input()
+            print()
             match answer:
                 case "1":
                     self.truckService.addTruck()
@@ -24,3 +25,4 @@ class View:
                     self.truckService.listTrucks()
                 case "5":
                     self.truckService.getBestRoute()
+            print()
