@@ -15,7 +15,8 @@ class TruckService:
         
         truck = Truck(id, isFull, localization)
         self.truckRepository.insert_truck(truck)
-        print('Truck sucessfully registered!')
+        print()
+        print('Truck successfully registered!')
 
     def updateTruck(self):
         id, isFull, localization = self.getData()
@@ -24,12 +25,14 @@ class TruckService:
         truck.set_isFull(isFull)
         truck.set_localization(localization)
         self.truckRepository.insert_truck(truck)
+        print()
         print('Truck successfully updated!')
 
     def removeTruck(self):
         print('Inform the trucks id to remove it')
         id = input()
         self.truckRepository.removeTruck(id)
+        print()
         print('Truck successfully removed')
     
     def listTrucks(self):
@@ -45,7 +48,7 @@ class TruckService:
             print('------------------------------------------')
     
     def getBestRoute(self):
-        print('Inform the trucks Id')
+        print('Inform the truck Id')
         id = input()
         truck = self.truckRepository.get_truck_by_id(id)
         graph = self.graphBuilder.get_graph()
@@ -53,6 +56,7 @@ class TruckService:
 
         path_reverse = ' -> '.join(reversed(path))
 
+        print()
         print(f'We found the following best path: {path_reverse}; \nDistance: {distance} km.')
 
     def getData(self):
@@ -72,7 +76,7 @@ class TruckService:
         index = None
         localization = None
         while index == None:
-            print('Please inform the trucks localization')
+            print('Please inform the truck localization')
             localization = input()
             #It breaks, fix this!
             index = self.nodes.index(localization)
