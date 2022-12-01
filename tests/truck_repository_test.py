@@ -1,5 +1,5 @@
-from Truck import Truck
-from truck_repository import Truck_repository
+from model.Truck import Truck
+from repository.TruckRepository import Truck_repository
 
 truck1 = Truck("pleasework123", True, "sport club do recife")
 truck2 = Truck("pleasework456", False, "santa cruz")

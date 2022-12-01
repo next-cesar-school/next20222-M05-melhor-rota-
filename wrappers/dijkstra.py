@@ -1,5 +1,5 @@
 import sys
-from graph import Graph
+from model.graph import Graph
 
 
 def dijkstra_algorithm(graph, start_node):
